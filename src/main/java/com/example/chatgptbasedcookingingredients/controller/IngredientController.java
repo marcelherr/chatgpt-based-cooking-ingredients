@@ -1,4 +1,4 @@
-package com.example.chatgptbasedcookingingredients;
+package com.example.chatgptbasedcookingingredients.controller;
 
 
 import lombok.RequiredArgsConstructor;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/ingredients")
+@RequestMapping("/api/open/ingredients")
 @RequiredArgsConstructor
 public class IngredientController {
 
@@ -17,7 +17,10 @@ public class IngredientController {
 
         // TODO: This should return "vegan", "vegetarian" or "regular" depending on the ingredient.
 
-        return "vegan";
+
+        private final IngredientService ingredientService;
+
+        return ingredientService.checkIngredient(ingredient);
     }
 
 }
